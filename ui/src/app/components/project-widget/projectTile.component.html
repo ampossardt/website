@@ -1,0 +1,8 @@
+<div class="project" (mouseenter)="enter($event)" (mouseleave)="leave($event)">
+  <figure class="stackable photo"></figure>
+  <div class="triangle-row" *ngFor="let row of rows" [ngStyle]="row.style">
+    <span class="stackable triangle" *ngFor="let tile of row.squares"
+      [ngStyle]="tile.style" [ngClass]="tile.classList"></span>
+  </div>
+  <div class="stackable borders"></div>
+</div>

@@ -1,0 +1,109 @@
+@import '../../../assets/sass/_variables';
+
+.stackable {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.project {
+    background-color: #222;
+    display: block;
+    width: 50%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+
+    .photo {
+        background-image: url('../../../assets/img/shiba.png');
+        background-size: cover;
+        background-position: 50% 50%;
+        display: block;
+        margin: 0;
+        filter: grayscale(100%);
+        transition: filter .3s;
+        box-shadow: inset 0 0 8px 0px rgba(0, 0, 0, .6);
+    }
+
+    .borders {
+        border: 0;
+        transition: border .3s;
+        box-sizing: border-box;
+    }
+
+    &:hover {
+        & > .borders {
+            border: 10px solid map-get($colors, seafoam);
+            border-left-color: darken($color: map-get($colors, seafoam), $amount: 15%);
+            border-top-color: darken($color: map-get($colors, seafoam), $amount: 15%)
+        }
+
+        & > .photo {
+            filter: grayscale(0%);
+        }
+    }
+}
+
+.triangle-row {
+    position: relative;
+    width: 100%;
+
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-top: 50px solid transparent;
+        border-bottom: 50px solid transparent;
+    
+        &.light-green {
+            border-color: map-get($colors, seafoam);
+        }
+        &.dark-green {
+            border-color: darken(map-get($colors, seafoam), 20%)
+        }
+        &.light-gray {
+            border-color: lighten(map-get($colors, dark), 20%);
+        }
+        &.dark-gray {
+            border-color: map-get($colors, dark);
+        }
+    
+        &.top-left {
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        }
+        &.top-right {
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+        }
+        &.bottom-left {
+            border-right-color: transparent;
+            border-top-color: transparent;
+        }
+        &.bottom-right {
+            border-left-color: transparent;
+            border-top-color: transparent;
+        }
+    
+        &.disappear {
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-name: disappear;
+
+            &.stop {
+                animation-iteration-count: 1;
+            }
+        }
+    }
+}
+
+@keyframes disappear {
+    0% { opacity: 1; }
+    15% { opacity: 1; }
+    50% { opacity: 0; }
+    85% { opacity: 1; }
+    100% { opacity: 1; }
+}
