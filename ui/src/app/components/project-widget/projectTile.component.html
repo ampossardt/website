@@ -4,5 +4,6 @@
     <span class="stackable triangle" *ngFor="let tile of row.squares"
       [ngStyle]="tile.style" [ngClass]="tile.classList"></span>
   </div>
+  <div class="overlay stackable" [ngClass]="overlayClass"></div>
   <div class="stackable borders"></div>
 </div>

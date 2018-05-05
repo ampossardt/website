@@ -112,6 +112,6 @@ export class ProjectTileSquare {
     }
 
     private initColors() {
-        this.remainingColors = ['light-green', 'dark-green', 'light-gray', 'dark-gray'];
+        this.remainingColors = ['light-green', 'medium-green', 'dark-green', 'extra-dark-green', 'light-gray', 'medium-gray', 'dark-gray', 'extra-dark-gray'];
     }
 }

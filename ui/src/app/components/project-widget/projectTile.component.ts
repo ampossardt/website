@@ -16,6 +16,8 @@ export class ProjectTileComponent {
         squareWidth: 100
     };
     private rows: ProjectTileRow[];
+    private overlayClass: string;
+    private timeoutId;
 
     private get tilesWide() {
         return this.dimensions.width / this.dimensions.squareWidth;
@@ -62,15 +64,19 @@ export class ProjectTileComponent {
     }
 
     public enter() {
-        console.log('fired');
+        if(this.timeoutId) clearTimeout(this.timeoutId);
+        this.overlayClass = 'hide';
         for(let i = 0; i < this.rows.length; i++) {
             this.rows[i].startAnimation();
         }
     }
 
     public leave() {
-        for(let i = 0; i < this.rows.length; i++) {
-            this.rows[i].stopAnimation();
-        }
+        this.overlayClass = '';
+        this.timeoutId = setTimeout(() => {
+            for(let i = 0; i < this.rows.length; i++) {
+                this.rows[i].stopAnimation();
+            }
+        }, 500);
     }
 }
