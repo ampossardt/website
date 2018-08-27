@@ -1,0 +1,36 @@
+<section [class.technology]="true" [class.state]="state">
+    <div class="content" #container [style.min-height.px]="contentHeight">
+        <h2>I build web applications using these technologies:</h2>
+        <figure class="tech-item" *ngFor="let item of techItems; index as i" [style.animationDelay]="item.getDelay(i)">
+            <img [src]="item.imagePath" />
+            <label>{{item.label}}</label>
+        </figure>
+    </div>
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" [attr.width.px]="svgWidth" viewBox="0 0 195.5 576.8" preserveAspectRatio="xMinYMin">
+        <title>tracelines</title>
+        <ellipse class="Left_Break_4_Branch_Circle" data-name="Left Break 4 Branch Circle" cx="187.7" cy="191.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <line class="Left_Break_4_Branch" data-name="Left Break 4 Branch" x1="183" y1="186.5" x2="168.4" y2="171.9" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Break_4_Circle" data-name="Left Break 4 Circle" cx="167.7" cy="207.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <polyline class="Left_Break_4" data-name="Left Break 4" points="168 200 168 150 108 89.5" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Break_3_Branch_Circle" data-name="Left Break 3 Branch Circle" cx="127.7" cy="191.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <line class="Left_Break_3_Branch" data-name="Left Break 3 Branch" x1="127.8" y1="146.3" x2="127.8" y2="185.5" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Break_3_Circle" data-name="Left Break 3 Circle" cx="147.7" cy="222.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <polyline class="Left_Break_3" data-name="Left Break 3" points="148 216.5 148 166.5 107.7 126.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Line_4_Circle" data-name="Left Line 4 Circle" cx="107.7" cy="268.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <line class="Left_Line_4" data-name="Left Line 4" x1="107.5" x2="107.5" y2="262" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Break_2_Circle" data-name="Left Break 2 Circle" cx="125.7" cy="418.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <polyline class="Left_Break_2" data-name="Left Break 2" points="87.5 1 87.5 316 126 354.5 126 412" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Break_1_Branch_2_Circle" data-name="Left Break 1 Branch 2 Circle" cx="87.7" cy="418.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <line class="Left_Break_1_Branch_2" data-name="Left Break 1 Branch 2" x1="88" y1="343.5" x2="88" y2="412.5" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Break_1_Branch_1_Circle" data-name="Left Break 1 Branch 1 Circle" cx="67.7" cy="367.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <line class="Left_Break_1_Branch_1" data-name="Left Break 1 Branch 1" x1="67.5" y1="323" x2="67.5" y2="361" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Break_1_Circle" data-name="Left Break 1 Circle" cx="105.7" cy="449.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <polyline class="Left_Break_1" data-name="Left Break 1" points="67.5 2 67.5 323 106 361.5 106 442.5" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Line_3_Circle" data-name="Left Line 3 Circle" cx="47.7" cy="538.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <line class="Left_Line_3" data-name="Left Line 3" x1="48" y1="2" x2="48" y2="532.5" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Line_2_Circle" data-name="Left Line 2 Circle" cx="27.7" cy="509.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <line class="Left_Line_2" data-name="Left Line 2" x1="27.5" y1="1" x2="27.5" y2="503" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <ellipse class="Left_Line_1_Circle" data-name="Left Line 1 Circle" cx="7.7" cy="569.2" rx="6.2" ry="6.2" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+        <line class="Left_Line_1" data-name="Left Line 1" x1="7.5" y1="1" x2="7.5" y2="563" fill="none" stroke="#000" stroke-miterlimit="10" stroke-width="3"/>
+    </svg>
+</section>

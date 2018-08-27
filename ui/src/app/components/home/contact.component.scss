@@ -1,0 +1,139 @@
+@import 'src/assets/sass/_variables';
+
+.contact {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+    height: calc(100vh - 50px);
+    position: relative;
+    background-image: linear-gradient(to top right, 
+        darken(map-get($colors, semi-dark), 5%), 
+        map-get($colors, semi-dark), 
+        darken(map-get($colors, semi-dark), 5%));
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+        width: 60%;
+        margin: 0 auto;
+        display: block;
+        z-index: 1;
+
+        h2 {
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        p {
+            color: white;
+            font-size: 1.1em;
+            opacity: 0;
+            transition: opacity .5s;
+            transition-delay: .5s;
+            margin: 0 0 0 10px;
+            display: inline-block;
+
+            &.show {
+                opacity: 1;
+            }
+        }
+
+        .row {
+            display: flex;
+            width: 100%;
+
+            .field {
+                flex: 1;
+                margin: 0 1%;
+                
+                &.half {
+                    max-width: 48%;
+                }
+
+                input, textarea {
+                    width: 100%;
+                    margin-top: 10px;
+                    margin-bottom: 12px;
+                    height: 45px;
+                    background-color: rgba(255,255,255, .1);
+                    display: inline-block;
+                    border: none;
+                    color: white;
+                    padding: 2px 8px;
+                    border-left: 4px solid map-get($colors, seafoam);
+                    border-top: 4px solid map-get($colors, seafoam);
+                    border-bottom: 4px solid darken(map-get($colors, seafoam), 25%);
+                    border-right: 4px solid darken(map-get($colors, seafoam), 25%);
+                    font-family: 'Lato' !important;
+                    font-weight: lighter;
+                    font-size: 1.1em;
+                    box-sizing: border-box;
+                    -webkit-box-sizing:border-box;
+                    -moz-box-sizing: border-box;
+
+                    &.ng-invalid {
+                        border-left: 4px solid map-get($colors, invalid);
+                        border-top: 4px solid map-get($colors, invalid);
+                        border-bottom: 4px solid darken(map-get($colors, invalid), 25%);
+                        border-right: 4px solid darken(map-get($colors, invalid), 25%);
+                    }
+
+                    &.ng-pristine {
+                        border-left: 4px solid map-get($colors, seafoam);
+                        border-top: 4px solid map-get($colors, seafoam);
+                        border-bottom: 4px solid darken(map-get($colors, seafoam), 25%);
+                        border-right: 4px solid darken(map-get($colors, seafoam), 25%);
+                    }
+                }
+
+                textarea {
+                    height: 150px;
+                    padding: 5px;
+                }
+
+                label {
+                    color: white;
+                    font-family: 'Questrial';
+                    display: inline-block;
+                    width: 46%;
+                    margin-right: 10px;
+                    font-size: 1em;
+                }
+            }
+        }
+
+        .btn-container {
+            transition: opacity .5s;
+            opacity: 1;
+            margin-left: 10px;
+
+            &.hide {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .contact {
+        .content {
+            width: 80%;
+            
+            .row {
+                flex-wrap: wrap;
+                
+                .field {
+                    flex: 1 1 100%;
+
+                    &.half {
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

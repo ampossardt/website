@@ -1,0 +1,40 @@
+<section class="contact">
+    <div class="content">
+        <h2>Questions? Comments? Drop me a line:</h2>
+        <form [formGroup]="contactForm">
+            <div class="row">
+                <div class="field">
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstname" formControlName="firstName"/>
+                </div>
+                <div class="field">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastname" formControlName="lastName"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="field half">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" formControlName="email" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="comment">Comment</label>
+                    <textarea name="comment" formControlName="comment"></textarea>
+                </div>
+            </div>
+            <div [class.hide]="sent" class="btn-container" *ngIf="!sent">
+                <a href="#" class="btn" (click)="submit($event)">
+                submit
+                </a>
+                <span class="line bottom"></span>
+                <span class="line right"></span>
+                <span class="line top"></span>
+                <span class="line left"></span>
+            </div>
+            <p [class.show]="sent">Thanks! I'll be in touch.</p>
+        </form>
+    </div>
+    <background-canvas [parentElement]="element" #background></background-canvas>
+</section>

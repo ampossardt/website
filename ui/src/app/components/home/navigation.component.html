@@ -1,0 +1,22 @@
+<nav class="navigation">
+    <div class="console-container">
+        <div class="console">
+            <span class="name">andrew@possardt:</span><span class="dir">~$</span> <span class="letter first">&nbsp;l</span><span class="letter second">s</span><span class="cursor"></span><span class="placeholder"></span>
+        </div>
+    </div>
+    <ul>
+        <li>projects</li>
+        <li>about</li>
+        <li (click)="scroll()">contact</li>
+    </ul>
+    <i class="fa fa-bars" (click)="toggleMenu()"></i>
+    <aside #menu>
+            <i class="fa fa-times" (click)="toggleMenu()"></i>
+        <ul>
+            <li>projects</li>
+            <li>about</li>
+            <li>contact</li>
+        </ul>
+    </aside>
+    <div class="overlay" #overlay></div>
+</nav>

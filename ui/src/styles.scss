@@ -1,9 +1,22 @@
 @import 'src/assets/sass/_variables';
 
 body {
-    background-color: map-get($colors, semi-dark);
+    background-color: map-get($colors, dark);
     height: 100vh;
     margin: 0 !important;
+    font-family: 'Lato', sans-serif;
+    
+    a, p {
+        font-family: 'Lato', sans-serif;        
+    }
+
+    p {
+        font-weight: lighter;
+    }
+
+    h1, h2, h3, h4 {
+        font-family: 'Questrial', sans-serif;
+    }
 }
 
 a {
@@ -15,6 +28,7 @@ nav {
     width: 100%;
     position: relative;
     box-shadow: 0px 0px 80px -16px #000;
+    border-bottom: 1px solid map-get($colors, seafoam);
 
     &:hover {
         ul li {
@@ -57,14 +71,57 @@ nav {
             color: white;
             font-family: 'Ubuntu Mono';
             display: inline-block;
-            padding: 20px 15px;
+            padding: 20px 30px;
             transition: opacity .5s;
+            font-size: 1.2em;
+            position: relative;
 
             &:hover {
                 opacity: 1;
                 cursor: pointer;
+
+                &:before {
+                    height: 40%;
+                    transition: height .5s;
+                }
+
+                &:after {
+                    height: 40%;
+                    top: 30%;
+                    transition: height 0s;
+                    transition-delay: .5s;
+                }
+            }
+
+            &:before {
+                content: '';
+                height: 0;
+                border-left: 3px solid map-get($colors, pale-blue);
+                margin-right: 5px;
+                position: absolute;
+                left: 20px;
+                transition: height 0s;
+                top: 30%;
+            }
+            &:after {
+                content: '';
+                height: 0;
+                border-left: 3px solid map-get($colors, pale-blue);
+                margin-right: 5px;
+                position: absolute;
+                left: 20px;
+                top: 70%;
+                transition: height .5s, top .5s;
             }
         }
+    }
+
+    aside {
+        display: none;
+    }
+
+    .fa.fa-bars {
+        display: none;
     }
 
     .console-container {
@@ -118,17 +175,201 @@ nav {
 
                 &.first {
                     visibility: hidden;
-                    // animation: show .1s;
-                    // animation-fill-mode: forwards;
-                    // animation-play-state: paused;
                 }
 
                 &.second {
                     visibility: hidden;
-                    // animation: show .1s;
-                    // animation-fill-mode: forwards;
-                    // animation-play-state: paused;
-                    // animation-delay: .1s;
+                }
+            }
+        }
+    }
+}
+
+.intro {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+    height: 88vh;
+    border-bottom: 5px solid map-get($colors, pale-blue);
+    background-image: linear-gradient(to top right, 
+        darken(map-get($colors, semi-dark), 8%), 
+        map-get($colors, semi-dark), 
+        darken(map-get($colors, semi-dark), 8%));
+    position: relative;
+    overflow: hidden;
+
+    .profile-image {
+        background: url('../src/assets/img/AndrewP.png') no-repeat left top;
+        background-size: cover;
+        width: 37%;
+        height: 65%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .profile-content {
+        width: 60%;
+        margin: 0 auto;
+
+        .inner {
+            padding: 20px;
+            background-color: darken(map-get($colors, semi-dark), 5%);
+            width: 80%;
+            line-height: initial;
+            margin: 0 auto;
+            border-left: 4px solid map-get($colors, seafoam);
+            border-top: 4px solid map-get($colors, seafoam);
+            border-bottom: 4px solid darken(map-get($colors, seafoam), 25%);
+            border-right: 4px solid darken(map-get($colors, seafoam), 25%);
+            box-shadow: -5px 5px 25px -5px rgba(0,0,0,.6);
+
+            h2 {
+                font-size: 2em;
+                margin: 0;
+                color: map-get($colors, seafoam);
+                line-height: 2em;
+            }
+            p {
+                margin: 0;
+                font-size: 1.3em;
+                line-height: 1.3em;
+                color: white;
+            }
+        }
+    }
+}
+
+// Button styles
+.btn-container {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    transition: background-color .5s;
+    margin-top: 5px;
+
+    a, button {
+        color: #fff;
+        font-size: 1.1em;
+        padding-left: 13px;
+        padding-right: 13px;
+        display: inline-block;
+        line-height: 48px !important;
+        font-weight: bold;
+    
+        &.bigger {
+            font-size: 1.3em;
+        }
+    
+        &:before {
+            content: '\f0da';
+            font-family: FontAwesome;
+            position: relative;
+            left: -8px;
+            top: 1px;
+            // color: map-get($colors, pale-blue);
+        }
+    
+        &:after {
+            content: '\f061';
+            font-family: FontAwesome;
+            opacity: 0;
+            transition: opacity .5s, padding-left .5s;
+            font-size: 1em;
+            position: relative;
+            font-weight: normal;
+            left: 0;
+            top: 1px;
+            padding-left: 2px;
+        }
+        &:hover {
+            &:before {
+                opacity: 0;
+            }
+            &:after {
+                padding-left: 6px;
+            }
+        }
+      }
+      
+      .line {
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: map-get($colors, seafoam);
+        transition: width .5s;
+      }
+      
+      .line.right, .line.left {
+        width: 0;
+      }
+      
+      .line.top {
+        transform: rotate(180deg);
+        top:0;
+        right:0;
+      }
+      .line.left {
+        transform: rotate(90deg);
+        top: 0;
+        left: 0;
+        transform-origin: top left;
+      }
+      .line.right {
+        transform: rotate(270deg);
+        bottom: 0;
+        left: 101%;
+        transform-origin: bottom left;
+      }
+      .line.bottom {
+        bottom: 0;
+        left: 0;
+      }
+  }
+  
+  
+  
+  .btn-container:hover {
+    background-color: rgba(255,255,255, .4);
+  }
+  
+  .btn-container:hover span.top, .btn-container:hover span.bottom {
+    width: 100%;
+  }
+  
+  .btn-container:hover .line.left, .btn-container:hover .line.right {
+    width: 50px;
+  }
+
+  .btn-container:hover a::after {
+    opacity: 1;
+  }
+
+footer {
+    height: 70px;
+    width: 100%;
+    background-color: map-get($colors, dark);
+
+    ul {
+        list-style-type: none;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+
+        li {
+            padding: 10px;
+            width: 50px;
+            margin: 0 auto;
+
+            svg {
+                max-width: 50px;
+
+                path {
+                    transition: fill .3s;
+                }
+            }
+            &:hover {
+                svg path {
+                    fill: #6e5494;
                 }
             }
         }
@@ -216,5 +457,149 @@ nav {
     }
     100% {
         right: 0;
+    }
+}
+
+@keyframes offset {
+    to {
+        stroke-dashoffset: 0; 
+    }
+}
+
+@keyframes bounce {
+    0% {
+        margin-top: 30px;
+        opacity: 0;
+    }
+    50% {
+        margin-top: 0px;
+    }
+    80% {
+        margin-top: 15px;
+    }
+    95% {
+        margin-top: 7px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    body {
+        font-size: 17px;
+    }
+
+    .navigation {
+        height: 70px;
+
+        .fa.fa-bars {
+            display: block;
+            color: white;
+            width: 70px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-align: center;
+            line-height: 70px;
+            font-size: 2.1em;
+            cursor: pointer;
+        }
+
+        .console-container {
+            line-height: 70px;
+            position: relative;
+            top: 0;
+            left: 0;
+            
+            .console {
+                margin-left: 15px;
+
+                .placeholder {
+                    display: none;
+                }
+            }
+
+            ul {
+                display: none;
+            }
+        }
+
+        aside {
+            width: 40vw;
+            height: 100vh;
+            display: block;
+            background-color: map-get($colors, semi-dark);
+            z-index: 10;
+            position: fixed;
+            right: -40vw;
+            top: 0;
+            transition: right .35s ease-in-out;
+
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+
+                li {
+                    text-align: center;
+                    padding: 15px;
+                    width: 100%;
+                    color: white;
+                    font-size: 1.2em;
+                    font-family: 'Questrial';
+                    font-weight: bold;
+                }
+            }
+
+            .fa.fa-times {
+                font-size: 2.3em;
+                color: white;
+                padding: 10px;
+            }
+        }
+
+        .overlay {
+            z-index: 9;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0,0,0, .6);
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+
+    .intro {
+        height: 78vh;
+
+        .profile-image {
+            width: 50%;
+            height: 45%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .intro {
+
+
+        .profile-image {
+            width: 60%;
+            height: 38%;
+        }
+
+        .profile-content {
+            width: 80%;
+
+            .inner {
+                h2 {
+                    font-size: 1.8em;
+                }
+            }
+        }
     }
 }
