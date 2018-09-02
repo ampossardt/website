@@ -2,7 +2,7 @@ import { Component, ViewChild, ElementRef, OnInit, HostListener } from '@angular
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LineCoordinates } from '../../models/LineCoordinates.model';
 import { CanvasComponent } from '../common/canvas.component';
-import { createText } from '@angular/core/src/view/text';
+import { MailService } from '../../services/mail.service';
 
 @Component({
     styleUrls: ['./contact.component.scss'],
@@ -14,11 +14,13 @@ export class ContactSectionComponent implements OnInit {
     private lineCount: number;
 
     public contactForm: FormGroup;
+    public sending: boolean;
     public sent: boolean;
+    public error: boolean;
 
     @ViewChild('background') public canvas: CanvasComponent;
 
-    constructor(public element: ElementRef) {
+    constructor(public element: ElementRef, private mailService: MailService) {
     }
 
     ngOnInit() {
@@ -34,7 +36,7 @@ export class ContactSectionComponent implements OnInit {
         this.contactForm = new FormGroup({
             firstName: new FormControl('', Validators.required),
             lastName: new FormControl('', Validators.required),
-            email: new FormControl('', Validators.required),
+            email: new FormControl('', [Validators.required, Validators.email]),
             comment: new FormControl('', Validators.required)
         });
         
@@ -42,22 +44,37 @@ export class ContactSectionComponent implements OnInit {
 
     private submit(event) {
         event.preventDefault();
+        if(this.sending) {
+            console.log('already sending');
+            return;
+        }
+        
+        this.error = false;
+
         if(this.contactForm.valid) {
-            for(let name in this.contactForm.controls) {
-                let control = this.contactForm.get(name);
+            this.sending = true;
 
-                control.setValue('');
-                control.markAsPristine();
-            }
-
-            this.sent = true;
+            this.mailService.sendEmail(this.contactForm.value).then(response => {                
+                this.sending = false;
+                this.sent = true;
+            }).catch((response) => {
+                this.sending = false;
+                this.error = true;
+                console.log(response);
+            });
         } else {
             for(let name in this.contactForm.controls) {
                 let control = this.contactForm.get(name);
-
-                control.markAsDirty();
+                
+                if(!control.valid) {
+                    control.markAsDirty();
+                }
             }
         }
+    }
+
+    private sendEmail() {
+        
     }
 
     private draw(ctx: CanvasRenderingContext2D, innerWidth: number, innerHeight: number) {

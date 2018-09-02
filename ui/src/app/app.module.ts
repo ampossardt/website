@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ContactSectionComponent } from './components/home/contact.component';
@@ -8,7 +9,7 @@ import { TechnologySectionComponent } from './components/home/technology.compone
 import { NavigationComponent } from './components/home/navigation.component';
 import { CanvasComponent } from './components/common/canvas.component';
 
-import { ContentfulService } from './services/contentful.service'
+import { MailService } from './services/mail.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,10 @@ import { ContentfulService } from './services/contentful.service'
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [ContentfulService],
+  providers: [MailService],
   bootstrap: [AppComponent, ContactSectionComponent, TechnologySectionComponent, NavigationComponent]
 })
 export class AppModule { }

@@ -33,6 +33,8 @@
                 <span class="line top"></span>
                 <span class="line left"></span>
             </div>
+            <i *ngIf="sending" class="fa fa-circle-o-notch spin"></i>
+            <p *ngIf="error" class="error">Oops, something went wrong. Please try sending again.</p>
             <p [class.show]="sent">Thanks! I'll be in touch.</p>
         </form>
     </div>

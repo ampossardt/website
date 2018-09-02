@@ -6,10 +6,10 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300|Questrial|Ubuntu" rel="stylesheet"/>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.6e081bab1d032d91e6b5.css"></head>
+  <link rel="stylesheet" href="styles.7cb657b862c49afd7d8e.css"></head>
   <body>
     <app-root>
-      <div style="width:100%;height:100%" class="lds-eclipse"><div></div></div>
+      <div class="lds-eclipse"><div></div></div>
       <style type="text/css">@keyframes lds-eclipse {
         0% {
           -webkit-transform: rotate(0deg);
@@ -38,30 +38,33 @@
           transform: rotate(360deg);
         }
       }
+      body {
+        background-color: #252525;
+      }
       .lds-eclipse {
         position: relative;
         margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .lds-eclipse div {
-        position: absolute;
         -webkit-animation: lds-eclipse 1s linear infinite;
         animation: lds-eclipse 1s linear infinite;
         width: 160px;
         height: 160px;
-        top: 20px;
-        left: 20px;
         border-radius: 50%;
         box-shadow: 0 4px 0 0 #1cff94;
         -webkit-transform-origin: 80px 82px;
         transform-origin: 80px 82px;
       }
       .lds-eclipse {
-        width: 200px !important;
-        height: 200px !important;
+        width: 100vw !important;
+        height: 100vh !important;
         -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
         transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
       }
       </style>
     </app-root>
-  <script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.7a0e6866a34e280f48e7.js"></script><script type="text/javascript" src="main.d68b246e06a9a0c79e53.js"></script></body>
+  <script type="text/javascript" src="runtime.a66f828dca56eeb90e02.js"></script><script type="text/javascript" src="polyfills.7a0e6866a34e280f48e7.js"></script><script type="text/javascript" src="main.e5132b65ca0cc6401df1.js"></script></body>
 </html>
